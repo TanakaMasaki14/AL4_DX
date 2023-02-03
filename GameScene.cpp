@@ -170,7 +170,7 @@ void GameScene::Update()
 	case RxP:
 		//レイ移動
 
-		rayMoveX = XMVectorSet(0.05f, 0.00f, 0.0f, 0.0f);
+		rayMoveX = XMVectorSet(0.1f, 0.00f, 0.0f, 0.0f);
 		// 移動の計算
 
 		if (input->PushKey(DIK_RIGHT)) {
@@ -185,9 +185,9 @@ void GameScene::Update()
 
 		raystr << "Ray Start:("
 			<< std::fixed << std::setprecision(2)
-			<< ray.start.m128_f32[0] << ","		
-			<< ray.start.m128_f32[1] << ","		
-			<< ray.start.m128_f32[2] << ")";	
+			<< ray.start.m128_f32[0] << ","
+			<< ray.start.m128_f32[1] << ","
+			<< ray.start.m128_f32[2] << ")";
 
 		hitRP = Collision::ChackRay2Plane(ray, plane, &distanceRP, &interRP);
 		if (hitRP)
@@ -220,7 +220,7 @@ void GameScene::Update()
 	case RxS:
 		//レイ移動
 
-		rayMoveX = XMVectorSet(0.05f, 0.00f, 0.0f, 0.0f);
+		rayMoveX = XMVectorSet(0.1f, 0.00f, 0.0f, 0.0f);
 		// 移動の計算
 		if (input->PushKey(DIK_RIGHT)) {
 			ray.start += rayMoveX;
@@ -234,9 +234,9 @@ void GameScene::Update()
 
 		raystr << "Ray Start:("
 			<< std::fixed << std::setprecision(2)
-			<< ray.start.m128_f32[0] << ","		
-			<< ray.start.m128_f32[1] << ","		
-			<< ray.start.m128_f32[2] << ")";	
+			<< ray.start.m128_f32[0] << ","
+			<< ray.start.m128_f32[1] << ","
+			<< ray.start.m128_f32[2] << ")";
 
 		hitRS = Collision::ChackRay2Sphere(ray, sphere, &distanceRS, &interRS);
 		if (hitRS)
@@ -245,7 +245,7 @@ void GameScene::Update()
 			objRay->SetColor(colorRS);
 			colorRS = { 1.0f,0.0f,0.0f,1.0f };
 			objSphere->SetColor(colorRS);
-			//debugText.Print("HIT!", 700, 240, 1.0f);
+			//debugText.Print("HIT!", 50, 240, 1.0f);
 
 			raystr.str("");
 			raystr.clear();
@@ -264,7 +264,7 @@ void GameScene::Update()
 		}
 		if (input->TriggerKey(DIK_SPACE))
 		{
-			sphere.center = XMVectorSet(0.0f, 2.0f, 0.0f, 1.0f);	
+			sphere.center = XMVectorSet(0.0f, 2.0f, 0.0f, 1.0f);
 			colorRS = { 1.0f,1.0f,1.0f,1.0f };
 			objGround->SetColor(colorRS);
 			scene = SxP;

@@ -2,7 +2,7 @@
 
 VSOutput main(float4 pos : POSITION, float3 normal : NORMAL, float2 uv : TEXCOORD)
 {
-	VSOutput output; // 繝斐け繧ｻ繝ｫ繧ｷ繧ｧ繝ｼ繝繝ｼ縺ｫ貂｡縺吝､
+	VSOutput output; // ピクセルシェーダーに渡す値
 	output.svpos = mul(mat, pos);
 	output.normal = normal;
 	output.uv = uv;

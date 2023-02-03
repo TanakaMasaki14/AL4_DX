@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include "CollisionPrimitive.h"
 #include "DirectXCommon.h"
 #include <DirectXMath.h>
 #include "Input.h"
@@ -51,18 +52,35 @@ public: // メンバ関数
 	/// </summary>
 	void Draw();
 
+	//当たり判定　球と平面
+	void IsCollisionSphereAndPlane();
+	//当たり判定　球と三角形
+	void IsCollisionSphereAndTriangle();
+
 private: // メンバ変数
 	DirectXCommon* dxCommon = nullptr;
 	Input* input = nullptr;
 	DebugText debugText;
 
+	//スプライト
+	Sprite* sprite1 = nullptr;
+	Sprite* sprite2 = nullptr;
+
 	/// <summary>
 	/// ゲームシーン用
 	/// </summary>
 	Sprite* spriteBG = nullptr;
-	Object3d* object3d = nullptr;
-	Object3d* object3d2 = nullptr;
+	Object3d* objSphere = nullptr;
+	Object3d* objGround = nullptr;
 
-	Sprite* sprite1 = nullptr;
-	Sprite* sprite2 = nullptr;
+	Model* modelSphere = nullptr;
+	Model* modelGround = nullptr;
+
+	//当たり判定　球
+	Sphere sphere;
+	//当たり判定　平面
+	Plane plane;
+	//当たり判定　三角形
+	Triangle triangle;
 };
+
